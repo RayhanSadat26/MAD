@@ -16,13 +16,13 @@ export default function Button({text,type="fill",onPress,loading})
             backgroundColor:type=='fill'?colors.PRIMARY:colors.WHITE
         }}
         disabled={loading}>
-            //Start---->{!loading?<Text
+            {!loading?<Text
             style={{
                 textAlign:'center',
                 fontSize:18,
                 color:type=='fill'?colors.WHITE:colors.PRIMARY
-            }}>{text}</Text>
-            <ActivityIndicator size={'small'} color={type=='fill'?colors.WHITE:colors.PRIMARY}/>}//<----- End of curly brace
+            }}>{text}</Text>:
+            <ActivityIndicator size={'small'} color={type=='fill'?colors.WHITE:colors.PRIMARY}/>}
         </TouchableOpacity>
     )
 }
