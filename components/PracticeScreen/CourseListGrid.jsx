@@ -1,12 +1,25 @@
-import {View,Text} from 'react-native'
+import {View,Text, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { FlatList } from 'react-native-web'
 import Colors from '../../constant/Colors'
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useRouter } from 'expo-router';
+import Quiz from '../../app/quiz';
 export default function CourseListGrid({courseList,option})
-{
-    return 
-    (
+{   
+    const router=useRouter();
+    const onPress=(course)=>{
+        if(option?.name=='Quiz')
+        {
+            router.push({
+                pathname:'/quiz',
+                params:{
+                    courseParams:JSON.stringify(course)
+                }
+            })
+        }
+    }
+    return(
         <View>
             <FlatList
             data={courseList}
@@ -15,7 +28,7 @@ export default function CourseListGrid({courseList,option})
                 padding:20
             }}
             renderItem={({item,index})=>(
-                <View key={index}
+                <TouchableOpacity onPress={()=>onPress(item)} key={index}
                 style={{
                     flex:1,
                     flexDirection:'column',
@@ -44,7 +57,7 @@ export default function CourseListGrid({courseList,option})
                         textAlign:'center',
                         marginTop: 7
                     }}>{item.courseTitle}</Text>
-                </View>
+                </TouchableOpacity>
             )}/>
         </View>
     )
