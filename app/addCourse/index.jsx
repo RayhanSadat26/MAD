@@ -9,8 +9,7 @@ export default function AddCourse()
     const onGenerateTopic=()=>{
 
     }
-    return 
-    (
+    return(
         <View
         style={{
             padding:25,
