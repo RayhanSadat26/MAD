@@ -1,3 +1,11 @@
+import {View,Text, Pressable, Dimensions, TouchableOpacity} from 'react-native'
+import React, { useState } from 'react'
+import { router, useLocalSearchParams } from 'expo-router'
+import Ionicons from '@expo/vector-icons/Ionicons';
+import Colors from '../../constant/Colors';
+import * as Progress from 'react-native-progress';
+import Button from './../../components/Shared/Button';
+import {db} from './../../config/firebase.config';
 import { arrayUnion,collection,doc,updateDoc } from 'firebase/firestore';
 export default function Quiz()
 {
